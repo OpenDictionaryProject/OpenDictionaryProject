@@ -11,4 +11,6 @@ FROM datasetteproject/datasette:latest
 RUN mkdir /db
 COPY --from=BUILDER /odp/Databases/dist/English/dictionary.db /db
 
+EXPOSE 8001
+
 ENTRYPOINT ["datasette", "/db/dictionary.db", "--setting max_returned_rows 5000"]
