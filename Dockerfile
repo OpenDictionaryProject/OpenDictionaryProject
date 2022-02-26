@@ -13,4 +13,4 @@ COPY --from=BUILDER /odp/Databases/dist/English/dictionary.db /db
 
 EXPOSE 8001
 
-ENTRYPOINT ["datasette", "/db/dictionary.db", "--setting max_returned_rows 5000"]
+ENTRYPOINT ["datasette", "serve", "-h 0.0.0.0", "--reload", "--cors"  "--setting max_returned_rows 5000", "/db/dictionary.db"]
